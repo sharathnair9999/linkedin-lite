@@ -113,7 +113,7 @@ const Avatar = styled.div`
   font-size: 14px;`;
 
   const BannerCard = styled(FollowCard)`
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   img{
     width:100%;
     height: 100%;

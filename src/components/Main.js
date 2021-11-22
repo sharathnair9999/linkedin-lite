@@ -268,7 +268,7 @@ button{
   display: inline-flex;
   align-items: center;
   padding: 8px;
-  color: #0a66c2;
+  color: #0a66c2;  
 
   @media(min-width: 768px){
     span{

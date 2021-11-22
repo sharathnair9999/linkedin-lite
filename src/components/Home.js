@@ -67,7 +67,7 @@ const Layout = styled.div`
   grid-template-columns: minmax(0,5fr) minmax(0,12fr) minmax(300px, 7fr);
   column-gap: 25px;
   row-gap: 25px;
-  margin: 25px 0;
+  margin: 10px 0;
   @media(max-width:768px){
     display: flex;
     flex-direction: column;

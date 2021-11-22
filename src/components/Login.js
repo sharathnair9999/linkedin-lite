@@ -2,10 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { signInAPI } from "../actions";
+import { Navigate } from "react-router";
 
 const Login = (props) => {
   return (
     <Container>
+      {
+        props.user && 
+        <Navigate to="/home"/>
+      }
       <Nav>
         <a href="/">
           <img src="/images/login-logo.svg" alt="" />
@@ -92,7 +97,7 @@ const Section = styled.section`
   display: flex;
   min-height: 700px;
   padding-bottom: 138px;
-  padding: 60px 0;
+  padding: 45px 0;
   position: relative;
   flex-wrap: wrap;
   width: 100%;
@@ -129,7 +134,7 @@ h1{
     bottom: -2px;
     right: -150px;
     @media (max-width:768px){
-      top: 2300px;
+      top: 230px;
       width: initial;
       position: initial;
       height: initial;
@@ -168,7 +173,9 @@ const Google = styled.button`
 `;
 
 const mapStateToProps = (state) =>{
-  return {};
+  return {
+    user: state.userState.user,
+  };
 }
 
 const mapDispatchToProps = (dispatch) =>({
