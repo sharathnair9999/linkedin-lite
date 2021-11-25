@@ -55,6 +55,7 @@ export function postArticleAPI(payload) {
   return (dispatch) => {
     dispatch(setLoading(true));
     if (payload.image !== "") {
+      console.log("With image");
       const upload = storage
         .ref(`images/${payload.image.name}`)
         .put(payload.image);
@@ -78,7 +79,7 @@ export function postArticleAPI(payload) {
               date: payload.timestamp,
               image: payload.user.photoURL,
             },
-            video: payload.video,
+            video: "",
             sharedImg: downloadURL,
             comments: 0,
             description: payload.description,
@@ -87,6 +88,7 @@ export function postArticleAPI(payload) {
         }
       );
     } else if (payload.video) {
+      console.log("Without image");
       db.collection("articles").add({
         actor: {
           description: payload.user.email,
@@ -100,6 +102,22 @@ export function postArticleAPI(payload) {
         description: payload.description,
       });
       dispatch(setLoading(false));
+    }
+    else if(payload.video==="" || payload.image===""){
+      console.log("Without image and video");
+        db.collection('articles').add({
+          actor:{
+            description: payload.user.email,
+          title: payload.user.displayName,
+          date: payload.timestamp,
+          image: payload.user.photoURL,
+          },
+          video:"",
+          sharedImg:"",
+          comments:0,
+          description:payload.description,
+        })
+        dispatch(setLoading(false));
     }
   };
 }
