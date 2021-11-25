@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import { useEffect } from "react";
 import { getUserAuth } from "./actions";
 import { connect } from "react-redux";
+import Network from "./components/Network";
 
 function App(props) {
   useEffect(() => {
@@ -26,6 +27,7 @@ function App(props) {
               </>
             }
           />
+          <Route path = "/network" element = {<Network/>}/>
         </Routes>
       </BrowserRouter>
     </div>
