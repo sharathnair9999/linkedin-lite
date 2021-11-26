@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { signOutAPI } from "../actions";
-import { Link } from "react-router-dom";
 const Header = (props) => {
   return (
     <Container>
@@ -31,7 +30,7 @@ const Header = (props) => {
             <NavList>
               <a>
                 <img src="/images/nav-network.svg" alt="" />
-                <span><Link style={{padding: '0', margin: '0'}} to = "/network">My Network</Link></span>
+                <span>My Network</span>
               </a>
             </NavList>
             <NavList>
@@ -198,7 +197,6 @@ const NavList = styled.li`
       min-width: 70px;
     }
   }
-  &:hover,
   &:active {
     a {
       span {
@@ -241,7 +239,6 @@ const User = styled(NavList)`
       display:flex;
     }
   }
-  
 `;
 
 const Work = styled(User)`
